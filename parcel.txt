@@ -1,0 +1,24 @@
+parcel is a bundler and its a beast
+
+~ install major update
+^ install minor update
+
+
+what is package.json?
+    its a configuration for npm . it keeps track of what version of packages are installed 
+
+what is this package-lock.json ?
+    package-lock.json will keep the track of the exact version of the package being installed
+
+every dependency in node module have its own package.json and package-lock.json
+
+
+parcel install many other dependencies such as babel , browserslist
+
+just like we have npm we have npx - npx means excicuting the package
+
+what parcel does?
+- dev build ==> parcel gives you faster development experience / build because it is cashing things up in `parcelCash`
+- local host
+- hmr ==> parcel uses file watching algorithm that is written c++
+- image optimization ==> parcel does image optimization
