@@ -1,0 +1,69 @@
+#JSX
+- jsx is not the part of React
+- jsx is not html inside JavaScript
+- jsx is a html like syntax or xml like
+- jsx is just a syntax
+- Element created using jsx in react is an object
+
+
+Element created using react :
+const heading = React.createElement("h1",{id:"heading"},"This is heading")
+
+Element created using JSX:
+const heading = <h1>This is heading</h1>
+
+These two objects are one and the same thing
+
+JS Engine cannot read JSX . Then how does this is read by the browser ? the ansser is parcel.
+- The jsx with JavaScript is transpiled (this code is converted to the code that the browsers can understand) by the parcel before it goes to JS Engine.
+- And Parcel does not transpile itself it uses `Babel` to do this.
+- Babel is a JavaScript compiler / transpiler.
+- Babel is not created by facebook.
+- JSX ==> React.createElement ==> JS object ==> HTML render
+- To give the attribute in JSX use camelCasing (eg: class => className, tabindex=>tabIndex)
+- if the jsx is in single line the ok
+        const headingJsx = <h2 id="heading">This is heading</h2>;
+ but if it is in multiple line then wrap it inside `( )`
+
+        const headingJsx = (<h2 id="heading">This is heading</h2>
+                            <h2 id="heading">This is heading</h2>
+                            )
+
+..................................................................................................
+
+React Component :
+
+Every thing in react is a Component and react functions Component are simple js functions
+
+there are two types of components :
+[1] Class based components - old way
+[2] Functional components - new way => react functions Component are simple js function which return some jsx
+
+-first letter should be capital
+
+const HeadingComponent = () => {
+  return <h1 id="heading">This is heading</h1>;
+};
+
+root.render(<HeadingComponent/>);
+
+- To put a component inside the component is called as `COMPONENT COMPOSITION`
+
+- you can write any JavaScript code / expression inside JSX using `{}`
+example :
+
+const HeadingComponent =() =>{
+    return 
+    (
+        <>
+            {console.log("this is js exporession", 1+2)}
+            <h1 id="heading">This is heading</h1>;
+        </>
+    )
+
+}
+
+
+## Getting Data from API
+-If api is cought by api and the api send some malecious data i.e `Cross site Scripting` happens then JSX takes care of 
+ these type of malicious attacks

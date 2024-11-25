@@ -19,6 +19,123 @@ just like we have npm we have npx - npx means excicuting the package
 
 what parcel does?
 - dev build ==> parcel gives you faster development experience / build because it is cashing things up in `parcelCash`
-- local host
+- local server
 - hmr ==> parcel uses file watching algorithm that is written c++
 - image optimization ==> parcel does image optimization
+- cashing - faster builds
+- ImageOptimization
+- Bundling
+- Compressing
+- Consistant Hashing 
+- Code Splitting
+- Differential Bundeling - to support older browsers
+- Diagnostic
+- Error Handling
+- HTTPS - Parcel also gives you to run your server on https://
+- Tree Shaking algoritm - Parcel will remove unused code 
+
+
+
+Episode 2 :: Assignments :
+
+[1] What is .parcel-cache ?
+Answer : 
+The `.parcel-cache` directory is a cache folder created by the **Parcel bundler**. It is used to store intermediate build data and processed assets, which helps speed up subsequent builds by avoiding the need to reprocess files that haven't changed.
+
+### Key Features of `.parcel-cache`
+1. **Build Performance**: 
+   - By caching previously processed assets and build outputs, Parcel can avoid repeating expensive operations, significantly reducing build times.
+   
+2. **Incremental Builds**:
+   - Parcel uses the cached data to determine which files have changed and only processes those files, making incremental builds faster.
+
+3. **Storage of Intermediate Artifacts**:
+   - Includes parsed modules, transformed code, optimized images, and other precomputed data.
+
+4. **Automatic Management**:
+   - The cache is automatically managed by Parcel and can be deleted if needed. Parcel will recreate the cache when you run the build process again.
+
+### Should You Keep `.parcel-cache`?
+- **In Development**: Yes, you should keep it to benefit from faster builds.
+- **In CI/CD Pipelines**: You can delete it if you want a fresh build, but caching it between builds (e.g., using CI caching mechanisms) can significantly speed up build times.
+- **In Version Control**: It should **not** be committed to version control (e.g., Git). Add it to your `.gitignore` file.
+
+### How to Clear `.parcel-cache`?
+If you encounter issues related to stale or corrupted cache, you can safely delete the `.parcel-cache` directory:
+- Run `parcel clean` (if available in your setup).
+- Or manually delete the `.parcel-cache` directory.
+
+Parcel will regenerate it the next time you build the project.
+
+...........................................................................................................
+
+[2] What is `Parcel/Webpack`? Why do we need it?
+Answer:
+### What is Parcel and Webpack?
+
+Both **Parcel** and **Webpack** are **module bundlers** used in modern web development. Their primary function is to bundle multiple assets (JavaScript, CSS, images, etc.) into a format optimized for browsers.
+
+---
+
+### **Parcel**
+- **Overview**:
+  - A zero-configuration bundler known for its ease of use.
+  - Automatically infers configuration from your project structure.
+  - Focuses on fast builds with caching and incremental compilation.
+
+- **Key Features**:
+  1. **Zero Configuration**: No setup is required for most cases.
+  2. **Fast Builds**: Uses caching and parallel processing to optimize speed.
+  3. **Built-in Support**: Handles modern JavaScript (ES6+), TypeScript, CSS, images, and more out-of-the-box.
+  4. **Hot Module Replacement (HMR)**: Updates the browser instantly during development without a full reload.
+
+---
+
+### **Webpack**
+- **Overview**:
+  - A highly configurable and versatile bundler.
+  - Offers a more hands-on, detailed approach for advanced use cases.
+  - Often used with additional tools (like Babel or loaders) for maximum flexibility.
+
+- **Key Features**:
+  1. **Customizability**: Highly customizable through a `webpack.config.js` file.
+  2. **Plugins and Loaders**: Supports a wide array of plugins and loaders for transforming and optimizing files.
+  3. **Code Splitting**: Splits code into smaller chunks for optimized delivery.
+  4. **Tree Shaking**: Removes unused code for smaller builds.
+
+---
+
+### Why Do We Need Parcel or Webpack?
+
+1. **Module Bundling**:
+   - Browsers don’t understand modern JavaScript features like `import`/`export` natively. Bundlers combine all your modules into a single file (or smaller chunks) for browsers.
+
+2. **Asset Optimization**:
+   - Compresses and optimizes images, minifies CSS/JavaScript, and performs tree-shaking to remove unused code.
+
+3. **Improved Development Workflow**:
+   - Features like Hot Module Replacement (HMR) let you see changes instantly without refreshing the browser.
+
+4. **Compatibility**:
+   - Transpiles modern JavaScript (e.g., ES6+) to ensure compatibility with older browsers.
+
+5. **Performance**:
+   - Outputs optimized files for faster load times in production.
+
+6. **Advanced Features**:
+   - Enables features like lazy loading, code splitting, and dynamic imports for better performance and maintainability.
+
+---
+
+### **When to Use Which?**
+- Use **Parcel** if:
+  - You prefer minimal setup and quick development.
+  - You are working on small to medium-sized projects.
+
+- Use **Webpack** if:
+  - You need fine-grained control over your build process.
+  - You are working on a large project with complex requirements.
+
+Both tools are widely used and have their strengths, but the choice depends on the project complexity and your workflow preferences.
+
+.............................................................................................................................................
