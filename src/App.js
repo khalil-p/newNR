@@ -51,14 +51,28 @@ const NavBar = () => {
   );
 };
 
-const RestaurantsCard = () => {
+const RestaurantsCard = ({ resName, discount, rating, cuisines }) => {
   return (
-    <div className="w-60 ">
-      <div className="h-52 bg-[url('https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1684997449/e30f186ad0a74b85bee65f1cb7cb76c9.jpg')]">
-        <div className="flex justify-between px-3">
-        <p className="font-[Gilroy-Bold] text-white">Pizza Hut</p>
-        <div className="font-[Gilroy-Bold] text-white flex"><StarIcon className="size-5"/>4.5</div>
+    <div className="w-60">
+      <div
+        className="h-52 content-end bg-cover bg-center rounded-2xl pb-2 "
+        style={{
+          backgroundImage: `linear-gradient(rgba(27, 30, 36, 0) 0%, rgb(27, 30, 36) 84.21%), url('https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1684997449/e30f186ad0a74b85bee65f1cb7cb76c9.jpg')`,
+        }}
+      >
+        <div className="flex justify-between px-3 ">
+          <p className="font-[Gilroy-Bold] text-white">{discount}</p>
         </div>
+      </div>
+      <div className="p-2">
+        <div className="flex justify-between">
+          <h3 className="font-[Gilroy-Bold]">{resName}</h3>
+          <div className="font-[Gilroy-Bold] flex">
+            <StarIcon className="size-5 " fill="yellow" />
+            {rating}
+          </div>
+        </div>
+        <p className="font-medium">{cuisines}</p>
       </div>
     </div>
   );
@@ -66,7 +80,20 @@ const RestaurantsCard = () => {
 const App = () => (
   <>
     <NavBar />
-    <RestaurantsCard />
+    <div className="m-[4rem] flex gap-5 flex-wrap">
+      <RestaurantsCard
+        resName="Wada Pav Wali"
+        discount="10% OFF"
+        rating="4.5"
+        cuisines="South Indian, Fast Food Chhindwara City"
+      />
+      <RestaurantsCard
+        resName="Baba Ka Dhaba"
+        discount="Pay 10% Extra"
+        rating="5.6"
+        cuisines="Puri Bhaji,"
+      />
+    </div>
   </>
 );
 
