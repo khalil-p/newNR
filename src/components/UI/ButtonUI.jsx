@@ -1,5 +1,3 @@
-/* eslint-disable react/button-has-type */
-
 const ButtonUI = ({
     text,
     buttonType = 'primary',
