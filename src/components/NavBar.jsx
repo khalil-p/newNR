@@ -1,13 +1,13 @@
 import ButtonUI from "./UI/ButtonUI";
 import InputUI from "./UI/InputUI";
 import MultiSelectReact from "./UI/MultiSelectReact";
-
-function NavBar() {
+import { LOGO_URL } from "../utils/utils";
+function NavBar({ handleOnSearch }) {
   return (
     <div className=" bg-[#ff5200] ">
       <div className="mx-48 pt-8 pb-20 flex justify-between items-center text-white">
         <a className="w-40 ">
-          <img src="https://res.cloudinary.com/dutdah0l9/image/upload/v1720058694/Swiggy_logo_bml6he.png" />
+          <img src={LOGO_URL} />
         </a>
         <ul className="flex items-center gap-5 font-[Gilroy-SemiBold]">
           <li>
@@ -41,7 +41,11 @@ function NavBar() {
             <MultiSelectReact height="2.5rem" />
           </div>
           <div className="w-52 relative ">
-            <InputUI className="h-10" placeholder="search..." />
+            <InputUI
+              onChange={handleOnSearch}
+              className="h-10"
+              placeholder="search..."
+            />
           </div>
         </div>
       </div>
