@@ -2,7 +2,13 @@ import ButtonUI from "./UI/ButtonUI";
 import InputUI from "./UI/InputUI";
 import MultiSelectReact from "./UI/MultiSelectReact";
 import { LOGO_URL } from "../utils/utils";
+import { useState } from "react";
 function NavBar({ handleOnSearch }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  function handleLogin() {
+    setIsLoggedIn((prev) => !prev);
+  }
+
   return (
     <div className=" bg-[#ff5200] ">
       <div className="mx-48 pt-8 pb-20 flex justify-between items-center text-white">
@@ -28,6 +34,14 @@ function NavBar({ handleOnSearch }) {
               type="tertiary"
               text={"Sign In"}
               className="bg-black py-3 px-6"
+            />
+          </li>
+          <li>
+            <ButtonUI
+              type="tertiary"
+              text={isLoggedIn ? "Logout" : "Login"}
+              className="bg-black py-3 px-6"
+              onClick={handleLogin}
             />
           </li>
         </ul>
