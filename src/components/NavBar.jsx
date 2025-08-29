@@ -36,7 +36,7 @@ function NavBar() {
           <li>
             <ButtonUI
               type="tertiary"
-              text={"Sign In"}
+              text={"Sign Up"}
               className="bg-black py-3 px-6"
             />
           </li>
