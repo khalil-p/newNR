@@ -2,20 +2,20 @@ import { useEffect, useState } from "react";
 
 export const useAppHook = () => {
   const [resData, setResData] = useState([]);
-
+  const [filteredData, setFilteredData] = useState([]);
   const handleTopRatedRes = () => {
-    const filteredData = data.filter((res) => {
+    const filteredData = resData.filter((res) => {
       return res.info.avgRating > 4;
     });
-    setResData(filteredData);
+    setFilteredData(filteredData);
   };
 
   const handleResetRes = () => {
-    setResData(data);
+    setFilteredData(resData);
   };
   const handleOnSearch = (e) => {
     const searchText = e.target.value.toLowerCase();
-    const filteredData = data.filter((item, index) => {
+    const filteredData = resData.filter((item, index) => {
       return (
         item?.info?.name?.toLocaleLowerCase().includes(searchText) ||
         item?.info?.cuisines?.some((cuisine) =>
@@ -23,7 +23,7 @@ export const useAppHook = () => {
         )
       );
     });
-    setResData(filteredData);
+    setFilteredData(filteredData);
   };
 
   useEffect(() => {
@@ -37,12 +37,13 @@ export const useAppHook = () => {
 
     const json = await data?.json();
     setResData(json);
+    setFilteredData(json);
     return json;
   };
 
   return {
     states: {
-      resData,
+      filteredData,
     },
     handlers: {
       handleTopRatedRes,
