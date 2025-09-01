@@ -34,10 +34,17 @@ export const useAppHook = () => {
     const data = await fetch(
       "https://mocki.io/v1/2cebe46e-ebb7-4c03-8879-b582b2ee45af"
     );
-
     const json = await data?.json();
-    setResData(json);
-    setFilteredData(json);
+    // setResData(json);
+    // setFilteredData(json);
+    const newApi = await fetch(
+      "https://mocki.io/v1/4a031d56-bd8b-4455-aae4-1d9b4aa5d288"
+    );
+    const newJson = await newApi.json();
+    setResData(newJson);
+    setFilteredData(newJson);
+    console.log({ newJson });
+
     return json;
   };
 
