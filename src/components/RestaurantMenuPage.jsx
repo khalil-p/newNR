@@ -32,7 +32,7 @@ function RestaurantMenuPage() {
           {/* Image */}
           <div className="relative">
             <img
-              src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1684997449/${cardInfo?.cloudinaryImageId}`}
+              src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cardInfo?.cloudinaryImageId}`}
               alt={cardInfo?.name}
               className="w-full h-44 object-cover"
             />

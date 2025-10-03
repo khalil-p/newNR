@@ -25,8 +25,8 @@ function RestaurantsCard({ resData }) {
       >
         <div className="flex justify-between px-3 ">
           <p className="font-[Gilroy-Bold] text-white">
-            {aggregatedDiscountInfoV3.header}{" "}
-            {aggregatedDiscountInfoV3.subHeader}
+            {aggregatedDiscountInfoV3?.header}{" "}
+            {aggregatedDiscountInfoV3?.subHeader}
           </p>
         </div>
       </div>

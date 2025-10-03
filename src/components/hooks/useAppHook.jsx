@@ -31,19 +31,16 @@ export const useAppHook = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://mocki.io/v1/2cebe46e-ebb7-4c03-8879-b582b2ee45af"
-    );
-    const json = await data?.json();
+    const data = await fetch("https://pastebin.com/raw/0QcdEDBL");
+
+    const json = await data?.data?.cards?.json();
+
     // setResData(json);
     // setFilteredData(json);
-    const newApi = await fetch(
-      "https://mocki.io/v1/4a031d56-bd8b-4455-aae4-1d9b4aa5d288"
-    );
+    const newApi = await fetch("https://pastebin.com/raw/0QcdEDBL");
     const newJson = await newApi.json();
-    setResData(newJson);
-    setFilteredData(newJson);
-    console.log({ newJson });
+    setResData(newJson?.data?.cards);
+    setFilteredData(newJson?.data?.cards);
 
     return json;
   };

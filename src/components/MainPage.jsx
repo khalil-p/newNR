@@ -10,6 +10,8 @@ function MainPage() {
   const { states, handlers } = useAppHook();
   const { filteredData } = states;
   const { handleOnSearch, handleResetRes, handleTopRatedRes } = handlers;
+  console.log({filteredData});
+  
   return (
     <>
       <div className=" flex flex-col items-center justify-center gap-5 bg-[#ff5200] pt-12">
@@ -38,8 +40,8 @@ function MainPage() {
           {filteredData.length === 0 ? (
             <CardShimmerUI />
           ) : (
-            filteredData?.map((restaurant) => {
-              console.log(restaurant?.info);
+            filteredData?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map((restaurant,index) => {
+              console.log(restaurant?.card?.card?.id);
               return (
                 <RestaurantsCard
                   key={restaurant?.info?.id}
