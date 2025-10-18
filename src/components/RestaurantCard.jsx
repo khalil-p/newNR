@@ -16,7 +16,11 @@ function RestaurantsCard({ resData }) {
     navigate(`restaurant/${id}`);
   };
   return (
-    <div className="w-60 hover:cursor-pointer hover:scale-95 transition-all duration-300" onClick={handleRestaurantClick} >
+    <div
+      className="w-60 hover:cursor-pointer hover:scale-95 transition-all duration-300"
+      // onClick={handleRestaurantClick}
+      onClick={() => navigate(`resMenu/${id}`)}
+    >
       <div
         className="h-52 content-end bg-cover bg-center rounded-2xl pb-2 "
         style={{
@@ -45,3 +49,19 @@ function RestaurantsCard({ resData }) {
 }
 
 export default RestaurantsCard;
+
+export const withPromotedComponent = (RestaurantsCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label
+          className="absolute bg-black text-white m-2 p-2 z-50 rounded-lg"
+          htmlFor=""
+        >
+          Promoted
+        </label>
+        <RestaurantsCard {...props} />
+      </div>
+    );
+  };
+};

@@ -1,17 +1,20 @@
 import React from "react";
 import { useAppHook } from "./hooks/useAppHook";
-import RestaurantsCard from "./RestaurantCard";
+import RestaurantsCard, { withPromotedComponent } from "./RestaurantCard";
 import Header from "./Header";
 import CardShimmerUI from "./UI/CardShimmerUI";
 import MultiSelectReact from "./UI/MultiSelectReact";
 import InputUI from "./UI/InputUI";
+import { useOnlineStatus } from "./hooks/useOnlineStatus";
+
+const PromotedRestaurantCard = withPromotedComponent(RestaurantsCard);
 
 function MainPage() {
   const { states, handlers } = useAppHook();
   const { filteredData } = states;
   const { handleOnSearch, handleResetRes, handleTopRatedRes } = handlers;
-  console.log({filteredData});
-  
+  const { onlineStatus } = useOnlineStatus();
+  if (!onlineStatus) return <div>Looks like you are not online...</div>;
   return (
     <>
       <div className=" flex flex-col items-center justify-center gap-5 bg-[#ff5200] pt-12">
@@ -40,15 +43,22 @@ function MainPage() {
           {filteredData.length === 0 ? (
             <CardShimmerUI />
           ) : (
-            filteredData?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map((restaurant,index) => {
-              console.log(restaurant?.card?.card?.id);
-              return (
-                <RestaurantsCard
-                  key={restaurant?.info?.id}
-                  resData={restaurant?.info}
-                />
-              );
-            })
+            filteredData?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(
+              (restaurant, index) => {
+                console.log(restaurant?.card?.card?.id);
+                return restaurant?.info?.avgRating > 4.5 ? (
+                  <PromotedRestaurantCard
+                    key={restaurant?.info?.id + index}
+                    resData={restaurant?.info}
+                  />
+                ) : (
+                  <RestaurantsCard
+                    key={restaurant?.info?.id + index}
+                    resData={restaurant?.info}
+                  />
+                );
+              }
+            )
           )}
         </div>
       </div>

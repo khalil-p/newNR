@@ -1,10 +1,8 @@
 import ButtonUI from "./UI/ButtonUI";
-import InputUI from "./UI/InputUI";
-import MultiSelectReact from "./UI/MultiSelectReact";
 import { LOGO_URL } from "../utils/utils";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-function NavBar() {
+function NavBar({ onlineStatus }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   function handleLogin() {
     setIsLoggedIn((prev) => !prev);
@@ -17,6 +15,9 @@ function NavBar() {
           <img src={LOGO_URL} />
         </Link>
         <ul className="flex items-center gap-5 font-[Gilroy-SemiBold]">
+          <li>
+            <span>Status: {onlineStatus ? "✅" : "🔴"}</span>
+          </li>
           <li>
             <Link to="/aboutus"> About Us</Link>
           </li>

@@ -5,12 +5,16 @@ import AboutUs from "./components/AboutUs";
 import ErrorPage from "./components/ErrorPage";
 import MainPage from "./components/MainPage";
 import RestaurantMenuPage from "./components/RestaurantMenuPage";
+import { useOnlineStatus } from "./components/hooks/useOnlineStatus";
+import Faq from "./components/UI/Faq";
+import ResMenu from "./components/ResMenu";
 
 const App = () => {
+  const { onlineStatus } = useOnlineStatus();
   return (
     <>
       {/* <NavBar handleOnSearch={handleOnSearch} /> */}
-      <NavBar />
+      <NavBar onlineStatus={onlineStatus} />
       <Outlet />
     </>
   );
@@ -32,6 +36,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenuPage />,
+      },
+      {
+        path: "/resMenu/:resId",
+        element: <ResMenu />,
       },
     ],
     errorElement: <ErrorPage />,

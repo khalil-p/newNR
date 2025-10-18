@@ -2,16 +2,37 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import CardShimmerUI from "./UI/CardShimmerUI";
 import { menuApi } from "../constants";
+import faqJson from "../data/faqJson.json";
 function RestaurantMenuPage() {
   const { resId } = useParams();
   const [resMenuData, setResMenuData] = useState(null);
+  const imgUrl = "https://media-assets.swiggy.com/swiggy/";
   const fetchMenu = async () => {
     if (!resId) return;
-    const menuData = await fetch(
-      `${menuApi}${resId}&catalog_qa=undefined&submitAction=ENTER`
-    );
-    const json = await menuData.json();
+
+    // NOTE ::  // Getting CORS Error to fetch the data , SO, Just using a hardcoded (only one restaurant id)
+    // const menuData = await fetch(
+    //   `${menuApi}${resId}&catalog_qa=undefined&submitAction=ENTER`
+    // );
+    // const menuData = await fetch(
+    //   `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.99740&lng=79.00110&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
+    // );
+    // console.log({ menuData });
+
+    // const json = await menuData?.json();
+    // console.log({ json1 });
+
+    const json = faqJson;
+
     console.log({ json });
+    const faqCardsData =
+      json?.[0]?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+        (item) =>
+          item?.card?.card?.["@type"] ===
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      );
+    console.log({ faqCardsData });
+
     setResMenuData(json);
   };
   useEffect(() => {
@@ -77,13 +98,15 @@ function RestaurantMenuPage() {
       )}
       <div className="w-1/2">
         <div>
-        <h3 className="font-bold">Recommended {resItems?.length} </h3>
+          <h3 className="font-bold">Recommended {resItems?.length} </h3>
         </div>
         {resItems?.map((item, index) => {
-          const itemInfo = item?.card?.info
-          return <div key={itemInfo.name}>
-            <p>{itemInfo.name}</p>
-          </div>;
+          const itemInfo = item?.card?.info;
+          return (
+            <div key={itemInfo.name}>
+              <p>{itemInfo.name}</p>
+            </div>
+          );
         })}
       </div>
     </div>
