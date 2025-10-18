@@ -3,18 +3,21 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Gilroy-Regular";
-  src: url('./src/assets/fonts/gilroy/Gilroy-Regular.ttf');
+  font-family: "Open Sans";
+  src: url("./src/assets/fonts/OpenSans-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Gilroy-Bold";
-    src: url('./src/assets/fonts/gilroy/Gilroy-Bold.ttf');
-  }
-@font-face {
-    font-family: "Gilroy-SemiBold";
-    src: url('./src/assets/fonts/gilroy/Gilroy-SemiBold.ttf');
-  }
+  font-family: "Open Sans";
+  src: url("./src/assets/fonts/OpenSans-Italic-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
 body {
-    font-family: "Gilroy-Regular";
+  font-family: "Open Sans", sans-serif;
 }

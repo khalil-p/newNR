@@ -470,6 +470,16 @@ img, video {
   margin-right: 12rem;
 }
 
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.my-3 {
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+}
+
 .ml-5 {
   margin-left: 1.25rem;
 }
@@ -482,12 +492,12 @@ img, video {
   margin-top: .5rem;
 }
 
-.mt-28 {
-  margin-top: 7rem;
-}
-
 .mt-5 {
   margin-top: 1.25rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .flex {
@@ -499,9 +509,24 @@ img, video {
   height: .5rem;
 }
 
+.size-4 {
+  width: 1rem;
+  height: 1rem;
+}
+
 .size-5 {
   width: 1.25rem;
   height: 1.25rem;
+}
+
+.size-0 {
+  width: 0;
+  height: 0;
+}
+
+.size-3 {
+  width: .75rem;
+  height: .75rem;
 }
 
 .h-10 {
@@ -512,8 +537,16 @@ img, video {
   height: 11rem;
 }
 
+.h-5 {
+  height: 1.25rem;
+}
+
 .h-52 {
   height: 13rem;
+}
+
+.h-36 {
+  height: 9rem;
 }
 
 .min-h-10 {
@@ -560,6 +593,10 @@ img, video {
   width: max-content;
 }
 
+.w-\[156px\] {
+  width: 156px;
+}
+
 .-translate-y-1 {
   --tw-translate-y: -.25rem;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -568,12 +605,6 @@ img, video {
 
 .-translate-y-1\/2 {
   --tw-translate-y: -50%;
-  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-rotate-180 {
-  --tw-rotate: -180deg;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -642,6 +673,10 @@ img, video {
   gap: 1.25rem;
 }
 
+.gap-4 {
+  gap: 1rem;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -672,6 +707,10 @@ img, video {
   border-radius: .375rem;
 }
 
+.rounded-xl {
+  border-radius: .75rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -682,6 +721,10 @@ img, video {
 
 .border-t {
   border-top-width: 1px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
 }
 
 .border-black {
@@ -699,6 +742,11 @@ img, video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
+.border-b-gray-400 {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
+}
+
 .bg-\[\#ff5200\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 82 0 / var(--tw-bg-opacity, 1));
@@ -709,6 +757,11 @@ img, video {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
 }
 
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gray-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
@@ -717,11 +770,6 @@ img, video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-yellow-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 252 232 / var(--tw-bg-opacity, 1));
 }
 
 .bg-opacity-70 {
@@ -816,6 +864,14 @@ img, video {
   padding-top: 2rem;
 }
 
+.pt-1 {
+  padding-top: .25rem;
+}
+
+.pb-1 {
+  padding-bottom: .25rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -888,6 +944,11 @@ img, video {
   color: rgb(239 68 68 / var(--tw-text-opacity, 1));
 }
 
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity, 1));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
@@ -920,22 +981,21 @@ img, video {
 }
 
 @font-face {
-  font-family: Gilroy-Regular;
-  src: url("Gilroy-Regular.788bef57.ttf");
+  font-family: Open Sans;
+  src: url("OpenSans-VariableFont_wdth,wght.ef123a0d.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: Gilroy-Bold;
-  src: url("Gilroy-Bold.4d87786b.ttf");
-}
-
-@font-face {
-  font-family: Gilroy-SemiBold;
-  src: url("Gilroy-SemiBold.2751913f.ttf");
+  font-family: Open Sans;
+  src: url("OpenSans-Italic-VariableFont_wdth,wght.7561979b.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
 }
 
 body {
-  font-family: Gilroy-Regular;
+  font-family: Open Sans, sans-serif;
 }
 
 .\*\:rounded-lg > * {

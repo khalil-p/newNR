@@ -1,20 +1,24 @@
+import { ChevronUp } from "lucide-react";
 import { useState } from "react";
 
 const Faq = ({ title = "Title", children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const handleOpenAccordion = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="w-1/2 bg-yellow-50 m-auto mt-28 tounded">
+    <div className="w-1/2  m-auto rounded">
       <div
         onClick={handleOpenAccordion}
-        className=" bg-gray-400 font-bold px-2 py-1 flex justify-between transition-all"
+        className=" font-bold  flex justify-between transition-all"
       >
         <span>{title}</span>
-        <span className={`${isOpen ? "rotate-180" : ""} outline-none`}>🔽</span>
+        <span className={`${isOpen ? "rotate-180" : ""} outline-none`}>
+          <ChevronUp />
+        </span>
       </div>
       {isOpen && <div>{children}</div>}
+      <div className="w-full h-5 bg-gray-200"></div>
     </div>
   );
 };
