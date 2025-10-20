@@ -15,7 +15,7 @@ export const useAppHook = () => {
   };
   const handleOnSearch = (e) => {
     const searchText = e.target.value.toLowerCase();
-    const filteredData = resData.filter((item, index) => {
+    const filteredData = resData?.filter((item, index) => {
       return (
         item?.info?.name?.toLocaleLowerCase().includes(searchText) ||
         item?.info?.cuisines?.some((cuisine) =>

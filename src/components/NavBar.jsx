@@ -1,12 +1,15 @@
 import ButtonUI from "./UI/ButtonUI";
 import { LOGO_URL } from "../utils/utils";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../utils/UserCotext";
 function NavBar({ onlineStatus }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   function handleLogin() {
     setIsLoggedIn((prev) => !prev);
   }
+  const { loggedInUser } = useContext(UserContext);
+
 
   return (
     <div className=" bg-[#ff5200] ">
@@ -41,6 +44,7 @@ function NavBar({ onlineStatus }) {
               className="bg-black py-3 px-6"
             />
           </li>
+          {isLoggedIn && <li className="font-bold">{loggedInUser}</li>}
           <li>
             <ButtonUI
               type="tertiary"

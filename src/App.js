@@ -8,14 +8,26 @@ import RestaurantMenuPage from "./components/RestaurantMenuPage";
 import { useOnlineStatus } from "./components/hooks/useOnlineStatus";
 import Faq from "./components/UI/Faq";
 import ResMenu from "./components/ResMenu";
-
+import { UserContext } from "./utils/UserCotext";
+import { useEffect, useState } from "react";
 const App = () => {
   const { onlineStatus } = useOnlineStatus();
+  const [userData, setUserData] = useState();
+  useEffect(() => {
+    const data = {
+      loggedInUser: "Khalil Pathan",
+    };
+    setUserData(data);
+  }, []);
   return (
     <>
-      {/* <NavBar handleOnSearch={handleOnSearch} /> */}
-      <NavBar onlineStatus={onlineStatus} />
-      <Outlet />
+      <UserContext.Provider
+        value={{ loggedInUser: userData?.loggedInUser, setUserData }}
+      >
+        {/* <NavBar handleOnSearch={handleOnSearch} /> */}
+        <NavBar onlineStatus={onlineStatus} />
+        <Outlet />
+      </UserContext.Provider>
     </>
   );
 };

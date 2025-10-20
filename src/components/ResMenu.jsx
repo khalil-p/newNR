@@ -7,6 +7,7 @@ import { SquareDot, StarIcon } from "lucide-react";
 function ResMenu() {
   const { resId } = useParams();
   const [resMenuData, setResMenuData] = useState(null);
+  const [showIndex, setShowIndex] = useState(0);
   const imgUrl = "https://media-assets.swiggy.com/swiggy/";
   const fetchMenu = async () => {
     if (!resId) return;
@@ -27,10 +28,22 @@ function ResMenu() {
   }, []);
   console.log({ resMenuData });
 
+  const handleOpenAccordion = (idx) => {
+    if (Number(idx) === showIndex) {
+      setShowIndex(null);
+    } else {
+      setShowIndex(idx);
+    }
+  };
   return (
     <div className="flex flex-col gap-5 my-5">
       {resMenuData?.map((item, idx) => (
-        <Faq key={idx} title={item?.card?.card?.title}>
+        <Faq
+          key={idx}
+          item={item}
+          isOpen={showIndex == Number(idx)}
+          handleOpenAccordion={() => handleOpenAccordion(idx)}
+        >
           <div className="flex flex-col gap-4 ">
             {item?.card?.card?.itemCards?.map((subItem, index) => {
               console.log({ subItem });
@@ -38,7 +51,7 @@ function ResMenu() {
               return (
                 <div
                   key={index}
-                  className="border-b border-b-gray-400 pb-2 flex justify-between"
+                  className="border-b border-b-gray-400 pb-2 flex justify-between transition-all delay-300 duration-150"
                 >
                   <div>
                     <div>
@@ -66,12 +79,14 @@ function ResMenu() {
                       {subItem?.card?.info?.description}
                     </p>
                   </div>
-
-                  <img
-                    src={`https://media-assets.swiggy.com/swiggy/${subItem?.card?.info?.imageId}`}
-                    alt="img"
-                    className="h-36 w-[156px] rounded-xl ml-4"
-                  />
+                  <div className="relative">
+                    <img
+                      src={`https://media-assets.swiggy.com/swiggy/${subItem?.card?.info?.imageId}`}
+                      alt="img"
+                      className="h-36 w-[156px] rounded-xl ml-4"
+                    />
+                    <button className="absolute bg-black text-white px-2 py-1 rounded-xl left-[45%] bottom-1">Add</button>
+                  </div>
                 </div>
               );
             })}

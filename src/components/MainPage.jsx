@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useAppHook } from "./hooks/useAppHook";
 import RestaurantsCard, { withPromotedComponent } from "./RestaurantCard";
 import Header from "./Header";
@@ -6,12 +6,13 @@ import CardShimmerUI from "./UI/CardShimmerUI";
 import MultiSelectReact from "./UI/MultiSelectReact";
 import InputUI from "./UI/InputUI";
 import { useOnlineStatus } from "./hooks/useOnlineStatus";
-
+import { UserContext } from "../utils/UserCotext.js"; 
 const PromotedRestaurantCard = withPromotedComponent(RestaurantsCard);
 
 function MainPage() {
+  const { loggedInUser,setUserData } = useContext(UserContext);
   const { states, handlers } = useAppHook();
-  const { filteredData } = states;
+  const { filteredData, } = states;
   const { handleOnSearch, handleResetRes, handleTopRatedRes } = handlers;
   const { onlineStatus } = useOnlineStatus();
   if (!onlineStatus) return <div>Looks like you are not online...</div>;
@@ -30,6 +31,14 @@ function MainPage() {
               onChange={handleOnSearch}
               className="h-10"
               placeholder="search..."
+            />
+          </div>
+          <div className="w-52 relative ">
+            <InputUI
+              value={loggedInUser || ""}
+              onChange={(e)=>setUserData({loggedInUser:e.target.value})}
+              className="h-10"
+              placeholder="User Name"
             />
           </div>
         </div>

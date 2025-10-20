@@ -433,12 +433,32 @@ img, video {
   left: .5rem;
 }
 
+.left-\[50\%\] {
+  left: 50%;
+}
+
 .right-3 {
   right: .75rem;
 }
 
 .top-1\/2 {
   top: 50%;
+}
+
+.bottom-4 {
+  bottom: 1rem;
+}
+
+.left-\[48\%\] {
+  left: 48%;
+}
+
+.left-\[45\%\] {
+  left: 45%;
+}
+
+.bottom-1 {
+  bottom: .25rem;
 }
 
 .z-10 {
@@ -470,14 +490,22 @@ img, video {
   margin-right: 12rem;
 }
 
+.my-3 {
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+}
+
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
 
-.my-3 {
-  margin-top: .75rem;
-  margin-bottom: .75rem;
+.mb-2 {
+  margin-bottom: .5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .ml-5 {
@@ -496,10 +524,6 @@ img, video {
   margin-top: 1.25rem;
 }
 
-.ml-4 {
-  margin-left: 1rem;
-}
-
 .flex {
   display: flex;
 }
@@ -507,6 +531,11 @@ img, video {
 .size-2 {
   width: .5rem;
   height: .5rem;
+}
+
+.size-3 {
+  width: .75rem;
+  height: .75rem;
 }
 
 .size-4 {
@@ -519,18 +548,12 @@ img, video {
   height: 1.25rem;
 }
 
-.size-0 {
-  width: 0;
-  height: 0;
-}
-
-.size-3 {
-  width: .75rem;
-  height: .75rem;
-}
-
 .h-10 {
   height: 2.5rem;
+}
+
+.h-36 {
+  height: 9rem;
 }
 
 .h-44 {
@@ -543,10 +566,6 @@ img, video {
 
 .h-52 {
   height: 13rem;
-}
-
-.h-36 {
-  height: 9rem;
 }
 
 .min-h-10 {
@@ -585,16 +604,16 @@ img, video {
   width: 20rem;
 }
 
+.w-\[156px\] {
+  width: 156px;
+}
+
 .w-full {
   width: 100%;
 }
 
 .w-max {
   width: max-content;
-}
-
-.w-\[156px\] {
-  width: 156px;
 }
 
 .-translate-y-1 {
@@ -669,12 +688,12 @@ img, video {
   gap: .75rem;
 }
 
-.gap-5 {
-  gap: 1.25rem;
-}
-
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .overflow-hidden {
@@ -719,12 +738,12 @@ img, video {
   border-width: 2px;
 }
 
-.border-t {
-  border-top-width: 1px;
-}
-
 .border-b {
   border-bottom-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
 }
 
 .border-black {
@@ -864,14 +883,6 @@ img, video {
   padding-top: 2rem;
 }
 
-.pt-1 {
-  padding-top: .25rem;
-}
-
-.pb-1 {
-  padding-bottom: .25rem;
-}
-
 .text-left {
   text-align: left;
 }
@@ -974,6 +985,14 @@ img, video {
   transition-property: all;
   transition-duration: .15s;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+.delay-300 {
+  transition-delay: .3s;
+}
+
+.duration-150 {
+  transition-duration: .15s;
 }
 
 .duration-300 {
